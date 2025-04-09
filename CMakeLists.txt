@@ -1,7 +1,12 @@
 cmake_minimum_required(VERSION 3.22)
+set(name demp)
+
+project(${name})
 
 add_subdirectory(SDL EXCLUDE_FROM_ALL)
 
-add_executable(hello hello.c)
-target_link_libraries(hello PRIVATE SDL3::SDL3)
+
+aux_source_directory(. src)
+add_executable(${name} ${src})
+target_link_libraries(${name} PRIVATE SDL3::SDL3)
 
